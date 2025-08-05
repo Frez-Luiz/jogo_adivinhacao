@@ -17,24 +17,27 @@ print(" (1)- Fácil (2)- Médio (3)- Difícil")
 nivel = int(input("Escolha um nível:  "))
 
 if(nivel == 1):
-    print("20 tentativas! Ta com medo, frango 🤣")
-elif(nivel == 2):
-    print(" 10 tentativas! Ta com pouca coragem 🤣")
+    print("20 tentativas")
+    totalTentativas = 20
+elif (nivel == 2):
+    print("10 tentativas")
+    totalTentativas = 10
 elif(nivel == 3):
-    print(" 5 tentativas! Ta corajoso demais pro meu gosto 😱 ")
+    print("5 tentativas")
+    totalTentativas = 5
 else:
-    print("Número invalido")
+    print("numero invalido")
 
 
 for rodada in range (1, totalTentativas +1):
-    print("Tentativas {} de {}". format(rodada, totalTentativas))
+    print("Tentativa {} de {}".format(rodada,totalTentativas))
+
     chute_str = input("Digite um número entre 1 e 100: ")
     chute = int(chute_str)
 
-
     if(chute < 1 or chute > 100):
-        print("Número invalido")
-        continue
+       print("Número invalido")
+       continue
 
     acertou = chute == numeroSecreto
     maior = chute > numeroSecreto
@@ -45,10 +48,10 @@ for rodada in range (1, totalTentativas +1):
         break
     else:
         if(maior):
-            print("Você errou! Seu chute foi maior que o número secreto")
+            print("Você errou! Seu chute foi maior que o numero secreto")
         elif(menor):
-            print("Você errou! seu chute foi menor que o número secreto")
-
-            pontosPerdidos = abs(numeroSecreto - chute)
-            pontos = pontos - pontosPerdidos
+            print("Você errou! Seu chute foi menor que o numero secreto")
+        pontosPerdidos = abs(numeroSecreto - chute)
+        pontos = pontos - pontosPerdidos
+            
 print("Fim de jogo ! O número era ",numeroSecreto)
